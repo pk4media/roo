@@ -538,12 +538,12 @@ Datei xl/comments1.xml
             f << zip.read(entry)
           }
         end
-        if entry.to_s.downcase.end_with?('styles.xml')
+        if entry.to_s.downcase.end_with?('stylesheet.xml')
           open(tmpdir+'/'+'roo_styles.xml','wb') {|f|
             f << zip.read(entry)
           }
         end
-        if entry.to_s.downcase =~ /sheet([0-9]+).xml$/
+        if entry.to_s.downcase =~ /data.xml$/
           nr = $1
           open(tmpdir+'/'+"roo_sheet#{nr}",'wb') {|f|
             f << zip.read(entry)
