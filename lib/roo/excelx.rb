@@ -543,12 +543,11 @@ Datei xl/comments1.xml
             f << zip.read(entry)
           }
         end
-        if entry.to_s.downcase =~ /data.xml$/
-          nr = $1
-          open(tmpdir+'/'+"roo_sheet#{nr}",'wb') {|f|
+        if entry.to_s.downcase =~ /data.xml/
+          open(tmpdir+'/'+"roo_sheet",'wb') {|f|
             f << zip.read(entry)
           }
-          @sheet_files[nr.to_i-1] = tmpdir+'/'+"roo_sheet#{nr}"
+          @sheet_files[0] = tmpdir+'/'+"roo_sheet"
         end
         if entry.to_s.downcase =~ /comments([0-9]+).xml$/
           nr = $1
